@@ -1,0 +1,17 @@
+<h1>Crear alumno</h1>
+<%= form_for(@alumno) do |f| %>
+	<p>
+		<%= f.label :nombre %><br>
+		<%= f.text_field :nombre %>
+	</p>
+	<p>
+		<%= f.label :apellido %><br>
+		<%= f.text_field :apellido %>
+	</p>
+	<p>
+		<%= f.label :DNI, "DNI" %><br>
+		<%= f.text_field :DNI %>
+	</p>
+
+	<%= f.submit %>
+<% end %>
