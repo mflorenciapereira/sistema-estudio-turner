@@ -23,6 +23,22 @@ class AlumnosController < ApplicationController
 		@alumno = Alumno.find(params[:id])	
 	end
 	
+	def edit
+		@alumno = Alumno.find(params[:id])	
+	end
+	
+	def update
+		@alumno = Alumno.find(params[:id])
+		
+		if @alumno.update(alumno_params)
+			flash[:notice] = I18n.t 'success-edit-alumno'
+			redirect_to @alumno		
+		else
+			flash.now[:alert] = I18n.t 'error-edit-alumno'
+			render "edit"		
+		end
+		
+	end
 	
 	private
 	

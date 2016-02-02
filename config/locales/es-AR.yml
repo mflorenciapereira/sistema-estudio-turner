@@ -25,4 +25,6 @@ es-AR:
       messages:
         blank: "es requerido"      
   success-create-alumno: "Alumno creado exitosamente."
+  success-edit-alumno: "Alumno actualizado exitosamente."
   error-create-alumno: "Falló la creación del alumno."
+  error-edit-alumno: "Falló la actualización del alumno."

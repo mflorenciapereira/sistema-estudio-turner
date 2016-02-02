@@ -1,2 +1,3 @@
 <h1><%= @alumno.apellido %>, <%= @alumno.nombre %> </h1>
+<%= link_to "Editar alumno", edit_alumno_path(@alumno) %>
 <p>DNI:<%= @alumno.documento %></p>
