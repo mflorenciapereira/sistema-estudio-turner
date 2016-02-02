@@ -20,4 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 es-AR:
+  activerecord:
+    errors:
+      messages:
+        blank: "es requerido"      
   success-create-alumno: "Alumno creado exitosamente."
+  error-create-alumno: "Falló la creación del alumno."

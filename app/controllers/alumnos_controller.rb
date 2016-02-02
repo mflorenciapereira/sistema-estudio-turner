@@ -1,5 +1,6 @@
 class AlumnosController < ApplicationController
 	def index	
+		@alumnos = Alumno.all
 	end
 	
 	def new
@@ -13,7 +14,8 @@ class AlumnosController < ApplicationController
 			flash[:notice] = I18n.t 'success-create-alumno'
 			redirect_to @alumno
 		else
-			
+			flash.now[:alert] = I18n.t 'error-create-alumno'
+			render "new"
 		end	
 	end
 	
@@ -25,6 +27,6 @@ class AlumnosController < ApplicationController
 	private
 	
 	def alumno_params
-		params.require(:alumno).permit(:nombre,:apellido,:DNI)
+		params.require(:alumno).permit(:nombre,:apellido,:tipoDocumento,:documento,:email)
 	end
 end

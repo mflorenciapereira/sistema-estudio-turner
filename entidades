@@ -1,0 +1,156 @@
+Interesado
+	Nombre *
+	Apellido *
+	Tipo documento *
+	Número de documento *
+	Fecha alta *
+	Domicilio
+	Teléfono
+	Celular
+	Email
+	Teléfono otro contacto
+	Observaciones
+	
+Alumno < Interesado
+	
+	El alumno asiste a por lo menos una clase.
+	El alumno tiene importes adicionales.
+	
+Exalumno
+	No tiene clases asignadas actualmente, pero sí tuvo alguna en el pasado.
+	
+ImporteAdicional
+	Precio
+	Frecuencia. (una vez por año).
+
+Empleado
+	Nombre
+	Apellido
+	Tipo documento
+	Número documento
+	Celular
+	
+	Cada empleado tiene una modalidad de pago.
+
+Modalidad de pago
+	Sueldo fijo.
+	Por comisión.	
+		
+Profesor < Empleado
+
+	Comisión.
+	
+	Intervalos de Disponibilidad
+	
+	Cada profesor da varios tipos de clases.
+	Cada profesor tiene intervalo de disponibilidad.
+
+Intervalo de disponibilidad
+	Frecuencia 
+		Meses: meses que está disponible
+		Por día de la semana: franjas desde - hasta
+			
+Tipo de clase
+	Nombre (Piano, Guitarra, Canto, Bajo, Batería)
+	
+	Hay varias clases para un mismo tipo.
+	
+Clase
+	Precio
+	Duración
+	Lugar: sala, domicilio del profesor, domicilio del alumno.
+	Es taller
+		Importe taller.
+	Frecuencia:	
+		Meses en los que se dicta
+		Por cada día de la semana, franjas desde-hasta.
+	
+	Las clases tienen una sala.
+	Las clases tienen un profesor.
+
+Sala
+	Nombre
+	Tamaño (Chica, Mediana, Grande)
+	
+	Una sala se asocia a un centro.
+	Cada sala se asocia a un profesor.
+
+Centro
+	Nombre
+	Dirección
+	
+	Un centro tiene muchas salas.
+	
+Usuario
+	Tipo: administrador, profesor.
+
+Gasto
+	Concepto
+	Importe
+	Recurrente
+		Frecuencia
+			Meses en los que se paga
+			Por hora, por semana, por mes.
+	Punturales
+		Fecha
+		
+Shows
+	Nombre
+	Fecha
+	Cantidad de alumnos que participan
+	Cantidad de profesores que participan
+	Precio entrada
+	Cantidad mínima vendida por alumno.
+	Costo adicional.
+	
+	Cada show tiene varios alumnos.
+	Cada show tiene varios profesores.
+	Cada show tiene ganancias por show.
+	
+GananciaShow
+	Importe
+	
+	Cada profesor que participa tiene una ganancia.
+
+Costo show
+		
+		
+Lugares para show
+	Nombre
+	Dirección
+	Cantidad de personas
+	Precio reserva
+	
+EntradaVendida
+	Cantidad vendida.	
+	
+	Se asocia a un alumno.
+	Se asocia a un show.
+
+Inventario
+	Descripción del activo
+	Valor actual.
+	Activo.
+	Fecha de alta.
+
+PrecioInventario
+	Precio
+	Fecha
+	
+	Cada precio inventario se asocia a un elemento inventario.
+	
+PagoAlumno
+	Estado: pendiente, pagado
+	Fecha vencimiento
+	Importe
+	
+	Tiene un alumno
+
+Pago a profesores
+	
+	
+	
+	
+
+	
+	

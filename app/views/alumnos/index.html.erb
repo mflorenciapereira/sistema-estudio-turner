@@ -1,1 +1,10 @@
 <%= link_to "Crear alumno", new_alumno_path %>
+
+<div id="alumnos">
+	<% @alumnos.each do |alumno| %>
+		<h2><%= link_to alumno.nombre+" "+alumno.apellido, alumno %></h2>
+		<p><%= alumno.tipoDocumento %></p>
+		<p><%= alumno.documento %></p>
+		<p><%= alumno.email %></p>
+	<% end %>
+</div>
