@@ -1,4 +1,7 @@
 class AlumnosController < ApplicationController
+
+	before_action :set_alumno, only: [:show, :edit, :update, :destroy]
+
 	def index	
 		@alumnos = Alumno.all
 	end
@@ -19,16 +22,13 @@ class AlumnosController < ApplicationController
 		end	
 	end
 	
-	def show
-		@alumno = Alumno.find(params[:id])	
+	def show		
 	end
 	
 	def edit
-		@alumno = Alumno.find(params[:id])	
 	end
 	
 	def update
-		@alumno = Alumno.find(params[:id])
 		
 		if @alumno.update(alumno_params)
 			flash[:notice] = t('success-edit-alumno')
@@ -41,8 +41,7 @@ class AlumnosController < ApplicationController
 	end
 	
 	def destroy
-		@alumno = Alumno.find(params[:id])
-		
+			
 		@alumno.destroy
 		flash[:notice] = t('success-delete-alumno')
 		redirect_to alumnos_path
@@ -50,6 +49,13 @@ class AlumnosController < ApplicationController
 	end
 	
 	private
+	
+	def set_alumno
+		@alumno = Alumno.find(params[:id])
+		rescue ActiveRecord::RecordNotFound
+			flash[:alert] = t('alumno-not-found')
+			redirect_to alumnos_path
+	end
 	
 	def alumno_params
 		params.require(:alumno).permit(:nombre,:apellido,:tipoDocumento,:documento,:email)

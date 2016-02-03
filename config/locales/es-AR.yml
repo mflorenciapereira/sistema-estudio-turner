@@ -30,3 +30,4 @@ es-AR:
   error-edit-alumno: "Falló la actualización del alumno."
   prevent-delete-alumno: "¿Está seguro de que desea eliminar al alumno?"
   success-delete-alumno: "Alumno eliminado exitosamente"
+  alumno-not-found: "Alumno no encontrado"
