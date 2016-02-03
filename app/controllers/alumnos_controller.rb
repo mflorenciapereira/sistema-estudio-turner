@@ -11,10 +11,10 @@ class AlumnosController < ApplicationController
 		@alumno = Alumno.new(alumno_params)
 		
 		if @alumno.save
-			flash[:notice] = I18n.t 'success-create-alumno'
+			flash[:notice] = t('success-create-alumno')
 			redirect_to @alumno
 		else
-			flash.now[:alert] = I18n.t 'error-create-alumno'
+			flash.now[:alert] = t('error-create-alumno')
 			render "new"
 		end	
 	end
@@ -31,13 +31,22 @@ class AlumnosController < ApplicationController
 		@alumno = Alumno.find(params[:id])
 		
 		if @alumno.update(alumno_params)
-			flash[:notice] = I18n.t 'success-edit-alumno'
+			flash[:notice] = t('success-edit-alumno')
 			redirect_to @alumno		
 		else
-			flash.now[:alert] = I18n.t 'error-edit-alumno'
+			flash.now[:alert] = t('error-edit-alumno')
 			render "edit"		
 		end
 		
+	end
+	
+	def destroy
+		@alumno = Alumno.find(params[:id])
+		
+		@alumno.destroy
+		flash[:notice] = t('success-delete-alumno')
+		redirect_to alumnos_path
+	
 	end
 	
 	private

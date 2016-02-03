@@ -1,3 +1,4 @@
 <h1><%= @alumno.apellido %>, <%= @alumno.nombre %> </h1>
 <%= link_to "Editar alumno", edit_alumno_path(@alumno) %>
+<%= link_to "Eliminar alumno", alumno_path(@alumno), method: :delete, data: {confirm: t('prevent-delete-alumno')} %>
 <p>DNI:<%= @alumno.documento %></p>
