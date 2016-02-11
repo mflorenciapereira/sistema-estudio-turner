@@ -1,35 +1,9 @@
-<%= form_for(alumno) do |f| %>
-	<% if alumno.errors.any? %>
-		<div id="error_explanation">
-		<h2><%= pluralize(alumno.errors.count, "error") %>
-		impidieron la creación del alumno:</h2>
-		<ul>
-			<% alumno.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-			<% end %>
-		</ul>
-		</div>
-	<% end %>
-	<p>
-		<%= f.label :nombre %><br>
-		<%= f.text_field :nombre %>
-	</p>
-	<p>
-		<%= f.label :apellido %><br>
-		<%= f.text_field :apellido %>
-	</p>
-	<p>
-		<%= f.label :tipoDocumento, "Tipo de documento" %><br>
-		<%= f.text_field :tipoDocumento %>
-	</p>	
-	<p>
-		<%= f.label :documento, "Documento" %><br>
-		<%= f.text_field :documento %>
-	</p>	
-	<p>
-		<%= f.label :email, "Email" %><br>
-		<%= f.text_field :email %>
-	</p>
-
-	<%= f.submit %>
+<%= simple_form_for(alumno) do |f| %>
+	<%= f.input :nombre %>
+	<%= f.input :apellido %>
+	<%= f.input :tipoDocumento %>
+	<%= f.input :documento %>
+	<%= f.input :email %>
+	
+	<%= f.button :submit, class: "btn-primary" %>
 <% end %>

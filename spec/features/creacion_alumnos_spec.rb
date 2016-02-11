@@ -27,7 +27,7 @@ feature "Los usuarios pueden crear alumnos" do
 		expect(page).to have_content "Falló la creación del alumno."
 		expect(page).to have_content "Nombre es requerido"
 		expect(page).to have_content "Apellido es requerido"
-		expect(page).to have_content "Tipodocumento es requerido"
+		expect(page).to have_content "Tipo de documento es requerido"
 		expect(page).to have_content "Documento es requerido"
 		expect(page).to have_content "Email es requerido"
 		

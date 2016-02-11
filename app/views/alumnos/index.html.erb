@@ -1,10 +1,68 @@
-<%= link_to "Crear alumno", new_alumno_path %>
+<header>
+	<h1><%=t('alumno')%></h1>
+	<ul class="actions">
+		<li><%= link_to "Crear alumno", new_alumno_path, class: "new" %></li>
+	</ul>
+</header>
+<%= form_tag alumnos_path, method: :get, class: "form-inline" do %>
+	<div class="row">
+		<div class="form-group">		 
+			<%= text_field_tag :query, params[:query], class:"form-control", placeholder: t('activerecord.attributes.alumno.documento')+", "+ t('activerecord.attributes.alumno.nombreCompleto')+", "+t('activerecord.attributes.alumno.email'), size:85 %>		
+		</div>	
+		<div class="form-group">		
+			<%= text_field_tag :from, params[:from],  class:"form-control", "data-provide" => "datepicker", "data-date-language"=> I18n.locale ,"placeholder" => t('desde') %>
+			<%= text_field_tag :to, params[:to],  class:"form-control", "data-provide" => "datepicker", "data-date-language"=>I18n.locale, "placeholder" => t('hasta') %>				
+		</div>	
+		<div class="checkbox">
+			<%= label_tag "active", t('activerecord.attributes.alumno.activo') %>		
+			<%= check_box_tag "active" %>		
+		</div>
+		
+	</div>	
+	<div class="row">
+	<div class="form-group">	
+		<%= label_tag params[:fieldOrder], "Ordenar" %>
+		<%= select_tag(:fieldOrder, options_for_select([[t('activerecord.attributes.alumno.documento'), 'documento'], [t('activerecord.attributes.alumno.nombreCompleto'), 'apellido'], [t('activerecord.attributes.alumno.email'), 'email'], [t('activerecord.attributes.alumno.created_at'), 'created_at']], :selected => params[:fieldOrder]), class: "form-control") %>
+		<%= select_tag(:orderDirection, options_for_select([[t('ascendente'), 'asc'], [t('descendente'), 'desc']], :selected => params[:orderDirection]), class: "form-control") %>
+	
+	</div>
+	<%= submit_tag "Buscar", class: "search" %>		
+	</div>
+	
 
+<% end %>
+<br>
 <div id="alumnos">
-	<% @alumnos.each do |alumno| %>
-		<h2><%= link_to alumno.nombre+" "+alumno.apellido, alumno %></h2>
-		<p><%= alumno.tipoDocumento %></p>
-		<p><%= alumno.documento %></p>
-		<p><%= alumno.email %></p>
-	<% end %>
+<% if @alumnos.total_count>0 %>
+	<table class="table table-striped">
+	  <thead>	
+		<tr>
+			<th><%= t('activerecord.attributes.alumno.documento')%></th>
+			<th><%= t('activerecord.attributes.alumno.nombreCompleto')%></th>
+			<th><%= t('activerecord.attributes.alumno.email')%></th>
+			<th><%= t('activerecord.attributes.alumno.created_at')%></th>
+			<th><%= t('activerecord.attributes.alumno.activo')%></th>		
+			<th><%= t('ver') %></th>		
+		</tr>
+	  </thead>
+	  <tbody>
+		<% @alumnos.each do |alumno| %>
+			<tr>
+		
+				<td><%= alumno.documento %></td>
+				<td><%= alumno.apellido+", "+alumno.nombre %></td>
+				<td><%= alumno.email %></td>
+				<td><%= time_tag alumno.created_at %></td>
+				<td><%= "Sí" %></td>
+				<td><%= link_to content_tag(:i, nil, :class => "fa fa-eye", :title => "View"), alumno %></td>
+			</tr>
+		<% end %>
+	  </tbody>
+	</table>
+	<%= paginate @alumnos %> <br>
+	<%= "Se encontraron #{@alumnos.total_count} alumnos." %>
+	
+<% else %>
+	<%= "No se encontraron alumnos." %>
+<% end %>
 </div>

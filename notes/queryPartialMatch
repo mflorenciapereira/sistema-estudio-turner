@@ -1,0 +1,2 @@
+Alumno.search("Flor", fields: [{nombre: :text_middle}]).map(&:nombre)
+rake searchkick:reindex CLASS=Alumno

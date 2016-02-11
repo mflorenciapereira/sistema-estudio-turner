@@ -20,7 +20,29 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 es-AR:
+  crear: Crear  
+  desde: Desde
+  hasta: Hasta
+  ver: Ver
+  ascendente: Ascendente
+  descendente: Descendente
+  helpers:
+    submit:
+      create: "Crear %{model}"
+      update: "Actualizar %{model}"	  
   activerecord:
+    models:
+     alumno: Alumno
+    attributes:
+      alumno:
+        nombre: "Nombre"
+        apellido: "Apellido"        
+        tipoDocumento: "Tipo de documento"
+        documento: "Documento"
+        email: "Email"
+        nombreCompleto: "Nombre completo"
+        created_at: "Fecha de creación"
+        activo: "Activo"
     errors:
       messages:
         blank: "es requerido"      
@@ -31,3 +53,17 @@ es-AR:
   prevent-delete-alumno: "¿Está seguro de que desea eliminar al alumno?"
   success-delete-alumno: "Alumno eliminado exitosamente"
   alumno-not-found: "Alumno no encontrado"
+  date:
+    datepicker:
+      default: "dd/mm/yyyy"
+      long: "dd MM, yyyy"
+    formats:
+      default: ! '%d/%m/%Y'
+      long: ! '%d %B, %Y'
+  views:
+    pagination:
+      first: "&laquo; Primero"
+      last: "Último &raquo;"
+      previous: "&lsaquo; Anterior"
+      next: "Siguiente &rsaquo;"
+      truncate: "..."
