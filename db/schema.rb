@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160202004908) do
+ActiveRecord::Schema.define(version: 20160213220832) do
 
   create_table "alumnos", force: :cascade do |t|
     t.string   "apellido"
@@ -24,8 +24,9 @@ ActiveRecord::Schema.define(version: 20160202004908) do
     t.string   "email"
     t.string   "telefonoContacto"
     t.string   "observaciones"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "activo",           default: true
   end
 
 end

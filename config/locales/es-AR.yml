@@ -20,19 +20,37 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 es-AR:
-  crear: Crear  
-  desde: Desde
-  hasta: Hasta
-  ver: Ver
-  ascendente: Ascendente
-  descendente: Descendente
+  createEntity: "Crear %{entity}"
+  editEntity: "Actualizar datos del %{entity}"
+  from: "Desde"
+  to: "Hasta"
+  show: "Ver"
+  order: "Ordenar"
+  asc: "Ascendente"
+  desc: "Descendente"
+  found: "Se encontraron %{matches} %{entity}."
+  notFound: "No se encontraron %{entity}."
+  search: "Buscar"
+  true_value: "Sí"
+  false_value: "No"
+  delete: "Eliminar %{entity}"
+  deactivate: "Desactivar %{entity}"
+  activate: "Activar %{entity}"
+  data: "Datos"
   helpers:
+    create: "Crear %{model}"
+    edit: "Editar %{model}"
     submit:
       create: "Crear %{model}"
       update: "Actualizar %{model}"	  
   activerecord:
     models:
-     alumno: Alumno
+     alumno: "alumno"
+     alumnos: "alumnos"
+     clase: "Clase"
+     clases: "clases"
+     pago: "Pago"
+     pagos: "pagos"
     attributes:
       alumno:
         nombre: "Nombre"
@@ -41,18 +59,28 @@ es-AR:
         documento: "Documento"
         email: "Email"
         nombreCompleto: "Nombre completo"
+        domicilio: "Domicilio"
+        telefono: "Teléfono"
+        celular: "Celular"
+        telefonoContacto: "Teléfono de contacto"
+        observaciones: "Observaciones"
         created_at: "Fecha de creación"
+        updated_at: "Fecha de última actualización"
         activo: "Activo"
     errors:
       messages:
         blank: "es requerido"      
-  success-create-alumno: "Alumno creado exitosamente."
-  success-edit-alumno: "Alumno actualizado exitosamente."
-  error-create-alumno: "Falló la creación del alumno."
-  error-edit-alumno: "Falló la actualización del alumno."
-  prevent-delete-alumno: "¿Está seguro de que desea eliminar al alumno?"
-  success-delete-alumno: "Alumno eliminado exitosamente"
-  alumno-not-found: "Alumno no encontrado"
+  success-create: "%{entity} creado exitosamente."
+  success-edit: "%{entity} actualizado exitosamente."
+  error-create: "Falló la creación del %{entity}."
+  error-edit: "Falló la actualización del %{entity}."
+  prevent-delete: "¿Está seguro de que desea eliminar al %{entity}?"
+  prevent-deactivate: "¿Está seguro de que desea desactivar al %{entity}?"
+  prevent-activate: "¿Está seguro de que desea activar al %{entity}?"
+  success-delete: "%{entity} eliminado exitosamente"
+  not-found: "%{entity} no encontrado"
+  success-deactivate: "Se desactivó el %{entity} exitosamente."
+  success-activate: "Se activó el %{entity} exitosamente."
   date:
     datepicker:
       default: "dd/mm/yyyy"

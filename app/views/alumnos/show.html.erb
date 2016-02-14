@@ -1,30 +1,48 @@
+<%
+delete = t("delete", entity: t('activerecord.models.alumno'))
+deactivate = t("deactivate", entity: t('activerecord.models.alumno'))
+activate = t("activate", entity: t('activerecord.models.alumno'))
+preventDelete = t('prevent-delete',entity: t('activerecord.models.alumno'))
+preventDeactivate = t('prevent-deactivate',entity: t('activerecord.models.alumno'))
+preventActivate = t('prevent-activate',entity: t('activerecord.models.alumno'))
+%>
 <header>
 	<h1><%= @alumno.apellido %>, <%= @alumno.nombre %> </h1>
 	<ul class="actions">
-		<li><%= link_to "Editar alumno", edit_alumno_path(@alumno), class: "edit" %></li>
-		<li><%= link_to "Eliminar alumno", alumno_path(@alumno), method: :delete, data: {confirm: t('prevent-delete-alumno')}, class: "delete" %></li>
+		<li><%= link_to delete, alumno_path(@alumno), method: :delete, data: {confirm: preventDelete}, class: "delete" %></li>
+		<% if @alumno.activo? %>
+			<li><%= link_to deactivate, [:deactivate,@alumno], method: :patch, data: {confirm: preventDeactivate}, class: "deactivate" %></li>
+		<% else %>
+			<li><%= link_to activate, [:activate,@alumno], method: :patch, data: {confirm: preventActivate}, class: "activate" %></li>
+		<% end %>
 	</ul>
 </header>
-
 <div id="content">
     <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-        <li class="active"><a href="#datos" data-toggle="tab">Datos</a></li>
-        <li><a href="#clases" data-toggle="tab">Clases</a></li>
-        <li><a href="#pagos" data-toggle="tab">Pagos</a></li>
+        <li class="active"><a href="#datos" data-toggle="tab"><%=t("data").capitalize %></a></li>
+        <li><a href="#clases" data-toggle="tab"> <%=t('activerecord.models.clases').capitalize %></a></li>
+        <li><a href="#pagos" data-toggle="tab"> <%=t('activerecord.models.pagos').capitalize %></a></li>
         
     </ul>
     <div id="my-tab-content" class="tab-content">
-	
-        <div class="tab-pane active" id="datos">
+	    <div class="tab-pane active" id="datos">
             <dl class="dl-horizontal">
 				<dt><%= t('activerecord.attributes.alumno.nombreCompleto')%></dt><dd><%= @alumno.apellido+", "+@alumno.nombre %></dd>
 				<dt><%= t('activerecord.attributes.alumno.tipoDocumento')%></dt><dd><%= @alumno.tipoDocumento %></dd>
 				<dt><%= t('activerecord.attributes.alumno.documento')%></dt><dd><%= @alumno.documento %></dd>
 				<dt><%= t('activerecord.attributes.alumno.email')%></dt><dd><%= @alumno.email %></dd>
-				<dt><%= t('activerecord.attributes.alumno.activo')%></dt><dd><%= "Sí" %></dd>
+				<dt><%= t('activerecord.attributes.alumno.domicilio')%></dt><dd><%= @alumno.domicilio %></dd>
+				<dt><%= t('activerecord.attributes.alumno.telefono')%></dt><dd><%= @alumno.telefono %></dd>
+				<dt><%= t('activerecord.attributes.alumno.celular')%></dt><dd><%= @alumno.celular %></dd>
+				<dt><%= t('activerecord.attributes.alumno.telefonoContacto')%></dt><dd><%= @alumno.telefonoContacto %></dd>
+				<dt><%= t('activerecord.attributes.alumno.observaciones')%></dt><dd><%= @alumno.observaciones %></dd>
+				<dt><%= t('activerecord.attributes.alumno.activo')%></dt><dd><%= t("#{@alumno.activo}_value") %></dd>
 				<dt><%= t('activerecord.attributes.alumno.created_at')%></dt><dd><%= time_tag @alumno.created_at %></dd>
-				
+				<dt><%= t('activerecord.attributes.alumno.updated')%></dt><dd><%= time_tag @alumno.updated_at %></dd>
 			</dl>			
+			<ul class="tab-actions">
+				<li><%= link_to "Editar alumno", edit_alumno_path(@alumno), class: "edit" %></li>
+			</ul>			
         </div>
         <div class="tab-pane" id="clases">
             <h1>Orange</h1>

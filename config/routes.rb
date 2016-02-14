@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-	root "alumnos#index"
-	
-	resources :alumnos
+	root "alumnos#index"	
+	resources :alumnos do
+		member do
+			patch :deactivate
+			patch :activate
+		end
+	end
 end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -6,7 +6,7 @@ feature "Los usuarios pueden ver los alumnos" do
 		alumno = FactoryGirl.create(:alumno,nombre:"Soledad",apellido:"Lopez")
 		
 		visit "/"
-		click_link "Soledad Lopez"
+		page.find('.table tr:nth-last-child(1) td:nth-last-child(1) a').click
 		expect(page.current_url).to eq alumno_url(alumno)
 	
 	end

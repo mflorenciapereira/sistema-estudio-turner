@@ -35,7 +35,7 @@ ul.actions{
 
 }
 
-a.new, a.edit, a.delete,.search{
+a.new, a.edit, a.delete,.search,a.deactivate, a.activate{
 	@extend .btn;
 
 	&:before{
@@ -80,6 +80,22 @@ a.delete {
 	}
 }
 
+a.deactivate {
+	@extend .btn-warning;
+	
+	&:before{
+		 @include fa-icon(power-off);
+	}
+}
+
+a.activate {
+	@extend .btn-warning;
+	
+	&:before{
+		 @include fa-icon(circle-o-notch);
+	}
+}
+
 header {
 	@extend .page-header;
 	position: relative;
@@ -115,4 +131,10 @@ form {
 
 .tab-content{
 	padding: 20px;
+}
+
+ul.tab-actions{
+	@extend .list-unstyled;
+	@extend .list-inline;
+	padding: 10px;
 }

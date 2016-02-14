@@ -40,6 +40,7 @@ group :development, :test do
 
   # Access an IRB console on exception pages or by using <%= console %> in views  
   gem "rspec-rails", "2.14.1"
+  gem 'elasticsearch-extensions'
 end
 
 group :development do
@@ -60,3 +61,4 @@ gem "simple_form", "~> 3.1.0"
 gem "searchkick"
 gem 'kaminari'
 gem 'bootstrap-datepicker-rails'
+gem "devise", "~> 3.4.1"
