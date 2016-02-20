@@ -1,6 +1,9 @@
 class AlumnosController < ApplicationController
 
-	before_action :set_alumno, only: [:show, :edit, :update, :destroy, :deactivate, :activate]
+	before_action :set_alumno, only: [:show, :edit, :update, :destroy, :deactivate, :activate]	
+	
+	
+
 
 	def index	
 	
@@ -74,8 +77,7 @@ class AlumnosController < ApplicationController
 	def edit
 	end
 	
-	def update
-		
+	def update	
 		if @alumno.update(alumno_params)
 			flash[:notice] = t('success-edit',entity:t('activerecord.models.alumno').capitalize)
 			redirect_to @alumno		
@@ -109,13 +111,14 @@ class AlumnosController < ApplicationController
 	private
 	
 	def set_alumno
-		@alumno = Alumno.find(params[:id])
+		@alumno = Alumno.find(params[:id])		
 		rescue ActiveRecord::RecordNotFound
 			flash[:alert] = t('not-found',entity:t('activerecord.models.alumno').capitalize)
 			redirect_to alumnos_path
 	end
 	
 	def alumno_params
-		params.require(:alumno).permit(:nombre,:apellido,:tipoDocumento,:documento,:email,:domicilio,:telefono,:celular,:telefonoContacto,:observaciones)
+		params.require(:alumno).permit(:nombre,:apellido,:documento,:email,:tipo_documento_id,{:tipo_documento_attributes => [:id,:descripcion]},:domicilio,:telefono,:celular,:telefonoContacto,:observaciones )	
 	end
+
 end

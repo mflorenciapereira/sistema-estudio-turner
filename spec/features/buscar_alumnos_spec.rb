@@ -1,10 +1,11 @@
 require "spec_helper"
 
 feature "Los usuarios pueden buscar los alumnos" do
+	let(:tipo_documento) { FactoryGirl.create(:tipo_documento) }
 
 	before do
-		FactoryGirl.create(:alumno,nombre:"Soledad",apellido:"Lopez", documento:"33206678", created_at: '2016-03-10 10:00:00')
-		FactoryGirl.create(:alumno,nombre:"María",apellido:"Pereira", documento:"33206679", created_at: '2016-01-10 10:00:00')
+		FactoryGirl.create(:alumno,nombre:"Soledad",apellido:"Lopez", documento:"33206678", created_at: '2016-03-10 10:00:00', tipo_documento: tipo_documento)
+		FactoryGirl.create(:alumno,nombre:"María",apellido:"Pereira", documento:"33206679", created_at: '2016-01-10 10:00:00', tipo_documento: tipo_documento)
 		visit "/"
 	end
 

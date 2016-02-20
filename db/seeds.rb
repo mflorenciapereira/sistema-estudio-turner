@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+TipoDocumento.delete_all
+tipoDocumento = TipoDocumento.create({codigo:"DNI", descripcion: "DNI"})
+Alumno.update_all(tipo_documento_id: tipoDocumento)

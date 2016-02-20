@@ -52,10 +52,12 @@ es-AR:
      pago: "Pago"
      pagos: "pagos"
     attributes:
+      tipo_documento:
+        descripcion: "Tipo de documento"
       alumno:
         nombre: "Nombre"
         apellido: "Apellido"        
-        tipoDocumento: "Tipo de documento"
+        tipo_documento: "Tipo de documento"
         documento: "Documento"
         email: "Email"
         nombreCompleto: "Nombre completo"
@@ -66,7 +68,7 @@ es-AR:
         observaciones: "Observaciones"
         created_at: "Fecha de creación"
         updated_at: "Fecha de última actualización"
-        activo: "Activo"
+        activo: "Activo"		
     errors:
       messages:
         blank: "es requerido"      

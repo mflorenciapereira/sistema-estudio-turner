@@ -11,12 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213220832) do
+ActiveRecord::Schema.define(version: 20160220190911) do
 
   create_table "alumnos", force: :cascade do |t|
     t.string   "apellido"
     t.string   "nombre"
-    t.string   "tipoDocumento"
     t.string   "documento"
     t.string   "domicilio"
     t.string   "telefono"
@@ -24,9 +23,31 @@ ActiveRecord::Schema.define(version: 20160213220832) do
     t.string   "email"
     t.string   "telefonoContacto"
     t.string   "observaciones"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.boolean  "activo",           default: true
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.boolean  "activo",            default: true
+    t.integer  "tipo_documento_id"
+  end
+
+  add_index "alumnos", ["tipo_documento_id"], name: "index_alumnos_on_tipo_documento_id"
+
+  create_table "profesors", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "apellido"
+    t.string   "documento"
+    t.string   "email"
+    t.string   "celular"
+    t.decimal  "comision"
+    t.decimal  "sueldo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tipos_documento", force: :cascade do |t|
+    t.string   "codigo"
+    t.string   "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

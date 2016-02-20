@@ -28,7 +28,7 @@ preventActivate = t('prevent-activate',entity: t('activerecord.models.alumno'))
 	    <div class="tab-pane active" id="datos">
             <dl class="dl-horizontal">
 				<dt><%= t('activerecord.attributes.alumno.nombreCompleto')%></dt><dd><%= @alumno.apellido+", "+@alumno.nombre %></dd>
-				<dt><%= t('activerecord.attributes.alumno.tipoDocumento')%></dt><dd><%= @alumno.tipoDocumento %></dd>
+				<dt><%= t('activerecord.attributes.alumno.tipo_documento')%></dt><dd><%= @alumno.tipo_documento.descripcion %></dd>
 				<dt><%= t('activerecord.attributes.alumno.documento')%></dt><dd><%= @alumno.documento %></dd>
 				<dt><%= t('activerecord.attributes.alumno.email')%></dt><dd><%= @alumno.email %></dd>
 				<dt><%= t('activerecord.attributes.alumno.domicilio')%></dt><dd><%= @alumno.domicilio %></dd>

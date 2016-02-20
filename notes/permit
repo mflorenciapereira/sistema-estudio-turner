@@ -1,0 +1,4 @@
+	params.require(:alumno).permit(:nombre,:apellido,:documento,:email,{:tipo_documento_attributes => [:id,:descripcion]},:domicilio,:telefono,:celular,:telefonoContacto,:observaciones, )
+	
+	
+	@alumno.build_tipo_documento(alumno_params[:tipo_documento])

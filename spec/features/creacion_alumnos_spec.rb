@@ -1,6 +1,7 @@
 require "spec_helper"
 feature "Los usuarios pueden crear alumnos" do
 
+	
 	before do
 		visit "/"
 		click_link "Crear alumno"
@@ -9,7 +10,7 @@ feature "Los usuarios pueden crear alumnos" do
 	scenario "con atributos válidos" do
 		fill_in "Nombre", with: "María Florencia"
 		fill_in "Apellido", with: "Pereira"
-		fill_in "Tipo de documento", with: "DNI"
+		fill_in "alumno_tipo_documento_attributes_descripcion", with: "DNI"
 		fill_in "Documento", with: "33206679"		
 		fill_in "Email", with: "mflorenciapereira@gmail.com"		
 		fill_in "Domicilio", with: "Av. San Martín 1281"		

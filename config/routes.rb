@@ -6,6 +6,20 @@ Rails.application.routes.draw do
 			patch :activate
 		end
 	end
+	
+	resources :tipo_documento do
+		collection do
+			get 'autocomplete', defaults: { format: 'json' }
+		end
+	end
+	
+	resources :autocomplete_object do
+		collection do
+			get 'autocomplete', :action => 'autocomplete', defaults: { format: 'json' }
+		end
+	end
+	
+	
 end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

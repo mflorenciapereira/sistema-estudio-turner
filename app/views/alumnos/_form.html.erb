@@ -1,7 +1,7 @@
 <%= simple_form_for(alumno) do |f| %>
 	<%= f.input :nombre %>
-	<%= f.input :apellido %>
-	<%= f.input :tipoDocumento %>
+	<%= f.input :apellido %>	
+	<%= f.input :tipo_documento, as: :autocomplete, label_name: "descripcion" %>		
 	<%= f.input :documento %>
 	<%= f.input :email %>
 	<%= f.input :domicilio %>
@@ -9,6 +9,8 @@
 	<%= f.input :celular %>
 	<%= f.input :telefonoContacto %>
 	<%= f.input :observaciones, :as => :text %>
+	
+	
 	
 	<%= f.button :submit, class: "btn-primary" %>
 <% end %>

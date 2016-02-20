@@ -1,0 +1,31 @@
+bundle exec rake routes
+bundle exec rspec
+
+rails g model ticket name:string description:text project:references
+rake db:test:prepare
+bundle exec rake db:migrate
+p "reflection es"
+	p object.class.reflections.select
+	p "sdsdsds es"
+	p object.class.reflect_on_all_associations
+	p "aaaaaaa es"
+	p input_options[:source]
+	
+	
+	p "vvvvvvvvvvvs es"
+	p object.class.reflect_on_all_associations
+	
+	object_mapping = "#{object_name}[#{attribute_name}]"
+	source = "autocomplete_autocomplete_object"
+		p "lalallalalla es"
+		asoc = object.class.reflect_on_all_associations.select {|a| a.name == attribute_name}
+		class_name = ""
+		if asoc[0].options && asoc[0].options[:class_name]
+			class_name=asoc[0].options[:class_name]
+		else
+			class_name = asoc[0].name.to_s.classify
+		end
+		
+	p class_name.constantize.all
+	
+	p "lalallalalla es"
